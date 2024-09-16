@@ -7,7 +7,7 @@ net.removeLayer('discriminator_conv');
 net.conserveMemory = false;
 
 % Get datasets from folder
-labels = get_labels;
+labels = get_labels_from_sheet('example_labels.xlsx');
 datasets = cell(length(keys(labels)), 1);
 dataset_names = keys(labels);
 for dataset = 1:length(keys(labels))

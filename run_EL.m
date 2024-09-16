@@ -1,4 +1,4 @@
-function labels = run_EL(images, psds, autocorrs)
+function labels = run_EL(model_path, images, psds, autocorrs)
     %% load network
     netStruct = dagnn.DagNN.loadobj(load('netICL.mat'));
     netStruct.removeLayer('discriminator_softmax');
@@ -69,5 +69,5 @@ function labels = run_EL(images, psds, autocorrs)
     X = preds_reshaped;
 
     % Run finetuned final layer
-    load('net_0828.mat', 'netTrained');
+    load(model_path, 'netTrained');
     labels = predict(netTrained, X);

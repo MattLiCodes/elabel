@@ -1,2 +1,3 @@
 EEG = pop_loadset();
-elabel(EEG);
+EEG = elabel('net_0828.mat', EEG);
+disp(EEG.etc.ic_classification.ELabel.classifications)

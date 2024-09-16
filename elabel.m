@@ -1,4 +1,4 @@
-function EEG = elabel(EEG)
+function EEG = elabel(model_path, EEG)
     % check EEG data for errors
     assert(isfield(EEG, 'icawinv') && ~isempty(EEG.icawinv), ...
         'You must have an ICA decomposition to use ICLabel')
@@ -13,12 +13,12 @@ function EEG = elabel(EEG)
     
     % run ICL
     disp 'ELabel: calculating labels...'
-    labels = run_EL(features{:});
+    labels = run_EL(model_path, features{:});
     
     % save into EEG
     disp 'ELabel: saving results...'
-    EEG.etc.ic_classification.ICLabel.classes = ...
+    EEG.etc.ic_classification.ELabel.classes = ...
         {'Brain', 'Other', 'Other', 'Other', ...
          'Other', 'Other', 'Other'};
-    EEG.etc.ic_classification.ICLabel.classifications = labels;
+    EEG.etc.ic_classification.ELabel.classifications = labels;
 end

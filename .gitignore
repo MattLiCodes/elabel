@@ -1,0 +1,7 @@
+.github
+matconvnet/
+tests/
+viewprops/
+netICL.mat
+netICL_beta.mat
+netICL_lite.mat
